@@ -71,7 +71,7 @@ const TaskManager = () => {
     try {
       const response = await axios.post('http://localhost:3001/send-sms', {
         body: `Reminder: Time for task "${task.taskName}". Description: ${task.description}`,
-        to: '+917995979829', // Replace with the recipient's phone number
+        to: '', // Replace with the recipient's phone number
       });
       message.success('SMS sent successfully!');
     } catch (error) {
