@@ -1,3 +1,9 @@
+// index.js
+
+// Load environment variables
+require('dotenv').config();
+
+// Dependencies
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -6,17 +12,25 @@ const mongoose = require('mongoose');
 const FormDataModel = require('./models/FormData');
 const taskRouter = require('./routes/task');
 
+// Initialize Express app
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB connection
-mongoose.connect('mongodb://127.0.0.1:27017/practice_mern');
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('MongoDB connected');
+})
+.catch((err) => {
+  console.error('MongoDB connection error:', err);
+});
 
 // Twilio configuration
-const accountSid = 'ACb7a2980f65780caff4210d33bc3a1186'; // Your Account SID from www.twilio.com/console
-const authToken = 'f1ec58785a55ab2ef767561b39dd9afe';               // Your Auth Token from www.twilio.com/console
-const client = new twilio(accountSid, authToken);
+const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 // User routes
 app.post('/register', (req, res) => {
@@ -29,7 +43,7 @@ app.post('/register', (req, res) => {
       } else {
         FormDataModel.create(req.body)
           .then(newUser => res.json(newUser))
-          .catch(err => res.json(err));
+          .catch(err => res.status(500).json(err));
       }
     })
     .catch(err => res.status(500).json(err));
@@ -63,16 +77,22 @@ app.post('/send-sms', (req, res) => {
 
   client.messages.create({
     body: body,
-    from: '+13344893639', // Your Twilio phone number
-    to:'+917995979829',
+    from: process.env.TWILIO_PHONE_NUMBER,
+    to: to,
   })
-  .then(message => {
-    res.status(200).json({ success: true, messageSid: message.sid });
-  })
-  .catch(err => {
-    console.error('Twilio error:', err); // Log Twilio error details
-    res.status(500).json({ success: false, error: err.message, details: err });
-  });
+    .then(message => {
+      res.status(200).json({ success: true, messageSid: message.sid });
+    })
+    .catch(err => {
+      console.error('Twilio error:', err); // Log Twilio error details
+      res.status(500).json({ success: false, error: err.message, details: err });
+    });
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 // Start server
