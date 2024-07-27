@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* TaskManager.css */
+
+.bg-light {
+    background-color: #f7d569 !important; /* Yellow */
+  }
+  
+  .task-form .task-input {
+    width: 75%;
+    margin: auto;
+  }
+  
+  .task-card {
+    background-color: #f7c25a; /* Orange */
+    color: #0f111d; /* Black */
+  }
+  
+  .task-card .btn-primary {
+    background-color: #0f111d; /* Black */
+    border-color: #0f111d; /* Black */
+  }
+  
+  .task-card .btn-danger {
+    background-color: #f7d569; /* Yellow */
+    border-color: #f7d569; /* Yellow */
+  }
+  
+  .task-card .btn-default {
+    background-color: #ffffff; /* White */
+    border-color: #ffffff; /* White */
+    color: #0f111d; /* Black */
+  }
+  
+  .text-primary {
+    color: #0f111d !important; /* Black */
+  }
+  
+  .text-secondary {
+    color: #ffffff !important; /* White */
+  }
+  
