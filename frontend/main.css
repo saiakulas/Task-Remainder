@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-<<<<<<< HEAD
 @tailwind utilities;
 /* TaskManager.css */
 
@@ -42,6 +41,4 @@
     color: #ffffff !important; /* White */
   }
   
-=======
 @tailwind utilities;
->>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
