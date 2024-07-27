@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
 import { Form, Input, Button, message, Typography } from 'antd';
 import { DeleteOutlined, EditOutlined, MessageOutlined } from '@ant-design/icons';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-=======
 import { Typography, Form, Input, Button, Space, message } from 'antd';
 import { DeleteOutlined, EditOutlined, MessageOutlined } from '@ant-design/icons';
->>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
 
 const { Title } = Typography;
 
@@ -47,13 +44,10 @@ const TaskManager = () => {
   };
 
   const handleDeleteTask = async (taskId) => {
-<<<<<<< HEAD
     if (!taskId) {
       console.error('Task ID is undefined.');
       return;
     }
-=======
->>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
     try {
       setLoading(true);
       await axios.delete(`http://localhost:3001/tasks/${taskId}`);
@@ -68,13 +62,10 @@ const TaskManager = () => {
   };
 
   const handleUpdateTask = async (taskId, values) => {
-<<<<<<< HEAD
     if (!taskId) {
       console.error('Task ID is undefined.');
       return;
     }
-=======
->>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
     try {
       setLoading(true);
       await axios.post(`http://localhost:3001/tasks/update/${taskId}`, values);
@@ -90,15 +81,12 @@ const TaskManager = () => {
 
   const sendSMS = async (task) => {
     try {
-<<<<<<< HEAD
       await axios.post('http://localhost:3001/send-sms', {
         body: `Reminder: Time for task "${task.taskName}". Description: ${task.description}`,
-        to: '+917995979829', // Replace with the recipient's phone number
-=======
+        to: '', // Replace with the recipient's phone number
       const response = await axios.post('http://localhost:3001/send-sms', {
         body: `Reminder: Time for task "${task.taskName}". Description: ${task.description}`,
         to: '', // Replace with the recipient's phone number
->>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
       });
       message.success('SMS sent successfully!');
     } catch (error) {
@@ -108,7 +96,6 @@ const TaskManager = () => {
   };
 
   return (
-<<<<<<< HEAD
     <Container fluid className="p-4" style={{ backgroundColor: '#f4f4f2' }}>
       <Row className="mb-4">
         <Col className="text-center">
@@ -234,7 +221,6 @@ const TaskManager = () => {
         </Col>
       </Row>
     </Container>
-=======
     <div className="container mx-auto p-4">
       <Title level={2} className="text-center mb-4">Task Manager</Title>
 
@@ -306,7 +292,6 @@ const TaskManager = () => {
         </Space>
       </div>
     </div>
->>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
   );
 };
 
