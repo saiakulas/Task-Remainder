@@ -2,7 +2,10 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form, Input, Button, Typography, Alert } from 'antd';
 import axios from 'axios';
+<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.min.css';
+=======
+>>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
 
 const { Title } = Typography;
 
@@ -27,6 +30,7 @@ const Login = () => {
     };
 
     return (
+<<<<<<< HEAD
         <div 
             className="d-flex justify-content-center align-items-center min-vh-100" 
             style={{ backgroundColor: '#f4f4f2' }}
@@ -48,6 +52,15 @@ const Login = () => {
                     onFinish={handleSubmit} 
                     layout="vertical"
                 >
+=======
+        <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-blue-400 to-blue-600">
+            <div className="bg-white p-6 rounded shadow-lg w-80">
+                <Title level={2} className="mb-4 text-primary font-bold">
+                    Login
+                </Title>
+                {errorMessage && <Alert message={errorMessage} type="error" showIcon />}
+                <Form form={form} onFinish={handleSubmit}>
+>>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
                     <Form.Item
                         label="Email Address"
                         name="email"
@@ -56,16 +69,21 @@ const Login = () => {
                             { type: 'email', message: 'Please enter a valid email address!' },
                         ]}
                     >
+<<<<<<< HEAD
                         <Input 
                             placeholder="Enter Email" 
                             style={{ borderColor: '#911825' }} 
                         />
+=======
+                        <Input placeholder="Enter Email" />
+>>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
                     </Form.Item>
                     <Form.Item
                         label="Password"
                         name="password"
                         rules={[{ required: true, message: 'Please enter your password!' }]}
                     >
+<<<<<<< HEAD
                         <Input.Password 
                             placeholder="Enter Password" 
                             style={{ borderColor: '#911825' }} 
@@ -82,15 +100,26 @@ const Login = () => {
                                 width: '100%'
                             }} 
                         >
+=======
+                        <Input.Password placeholder="Enter Password" />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit" className="w-full" block>
+>>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
                             Login
                         </Button>
                     </Form.Item>
                 </Form>
+<<<<<<< HEAD
                 <p 
                     className="mt-3 text-center" 
                     style={{ color: '#911825' }}
                 >
                     Don't have an account? <Link to="/register" style={{ color: '#007bff' }}>Register</Link>
+=======
+                <p className="mt-4 text-sm text-gray-600">
+                    Don't have an account? <Link to="/register" className="text-blue-500">Register</Link>
+>>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
                 </p>
             </div>
         </div>

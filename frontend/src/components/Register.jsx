@@ -27,9 +27,15 @@ const Register = () => {
     };
 
     return (
+<<<<<<< HEAD
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', backgroundColor: '#f4f4f2' }}>
             <div style={{ width: 400, backgroundColor: '#ffffff', padding: 24, borderRadius: 8, boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
                 <Title level={2} style={{ textAlign: 'center', marginBottom: 16, color: '#911825' }}>
+=======
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: 'linear-gradient(to bottom, #00c6ff, #0072ff)' }}>
+            <div style={{ width: 400, background: '#fff', padding: 24, borderRadius: 8, boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
+                <Title level={2} style={{ textAlign: 'center', marginBottom: 16, color: '#1890ff' }}>
+>>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
                     Register
                 </Title>
                 {errorMessage && <Alert message={errorMessage} type="error" showIcon style={{ marginBottom: 16 }} />}
@@ -39,7 +45,11 @@ const Register = () => {
                         name="name"
                         rules={[{ required: true, message: 'Please enter your name!' }]}
                     >
+<<<<<<< HEAD
                         <Input placeholder="Enter Name" style={{ borderColor: '#911825' }} />
+=======
+                        <Input placeholder="Enter Name" />
+>>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
                     </Form.Item>
                     <Form.Item
                         label="Email Address"
@@ -49,23 +59,39 @@ const Register = () => {
                             { type: 'email', message: 'Please enter a valid email address!' },
                         ]}
                     >
+<<<<<<< HEAD
                         <Input placeholder="Enter Email" style={{ borderColor: '#911825' }} />
+=======
+                        <Input placeholder="Enter Email" />
+>>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
                     </Form.Item>
                     <Form.Item
                         label="Password"
                         name="password"
                         rules={[{ required: true, message: 'Please enter your password!' }]}
                     >
+<<<<<<< HEAD
                         <Input.Password placeholder="Enter Password" style={{ borderColor: '#911825' }} />
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className="w-full" style={{ backgroundColor: '#911825', borderColor: '#911825' }}>
+=======
+                        <Input.Password placeholder="Enter Password" />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit" className="w-full">
+>>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
                             Register
                         </Button>
                     </Form.Item>
                 </Form>
+<<<<<<< HEAD
                 <p style={{ textAlign: 'center', marginTop: 8, color: '#911825' }}>
                     Already have an account? <Link to='/login' style={{ color: '#911825' }}>Login</Link>
+=======
+                <p style={{ textAlign: 'center', marginTop: 8, color: '#888' }}>
+                    Already have an account? <Link to='/login' style={{ color: '#1890ff' }}>Login</Link>
+>>>>>>> 5e74295955ac1739f8241517e69e9b90ded07797
                 </p>
             </div>
         </div>
